@@ -3,7 +3,7 @@
 <img src="https://angular.io/assets/images/logos/angular/angular.svg" height="150px">
 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/TypeScript_Logo.png" height="80px">
 
-<h1>Angular 2 with TypeScript Workshop.</h1>
+<h1>Latest Angular with TypeScript Workshop.</h1>
 
 <ol>
 <li>Introduction</li>
