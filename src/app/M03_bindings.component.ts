@@ -15,6 +15,7 @@
  * Desenvolupament Aplicacions Web. Jesuïtes El Clot
  */
 import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import {Observable} from 'rxjs/Rx';
 
 @Component({
     selector: 'comptador',
@@ -28,12 +29,13 @@ import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angu
 })
 export class CompteEnrera_Component {
     @Input() segons: number=60; //si no es defineix la prop d'entrada val 60
-    intervalId: NodeJS.Timer;
+    
     @Output() completat: EventEmitter<any> = new EventEmitter();
     @Output() progres: EventEmitter<number> = new EventEmitter<number>();
 
     constructor() {
-        this.intervalId = setInterval(() => this.tick(), 1000);
+        let timer = Observable.timer(2000,1000);
+        timer.subscribe(this.tick);
     }
     private tick(): void {
 

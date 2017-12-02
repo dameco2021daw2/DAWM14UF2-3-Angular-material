@@ -1,18 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
+import { M01_SumaComponent } from './M01_suma.component';
+import { M02_IteradorComponent } from './M02_iterador.component';
 
-import { AppComponent } from './app.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    M01_SumaComponent,
+    M02_IteradorComponent
+    
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [M01_SumaComponent]
 })
 export class AppModule { }
