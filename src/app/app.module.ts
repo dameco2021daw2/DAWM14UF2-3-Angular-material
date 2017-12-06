@@ -1,23 +1,47 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-import { M01_SumaComponent } from './M01_suma.component';
-import { M02_IteradorComponent } from './M02_iterador.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-
+import { M01_SalutacioComponent } from './m01-salutacio.component';
+import { M02_SumaComponent } from './m02-suma.component';
+import { M03_IteradorComponent } from './m03-iterador.component';
+import { M04_PomodoroComponent } from './m04-pomodoro.component';
+import { M05_BindingsComponent } from './m05-bindings.component';
+import { M05_CompteEnrera_Component } from './m05-bindings.component';
+import { M06_DirectivesComponent } from './m06-directives.component';
+import { M07_DirectivaPersonalitzadaComponent } from './m07-directiva-personalitzada.component';
+import { M07_DirectivaPersonalizada } from './m07-directiva-personalitzada.directive';
+import { M08_PipesComponent } from './m08-pipes.component';
+import { M09_PipePersonalizadaComponent} from './m09-pipe-personalitzada.component';
+import { M09_OrdenarPerPipe } from './m09-ordenar-per.pipe';
+import { M10_AnimacionsComponent } from './m10-animacions.component';
+import { M10_AnimacioComponent } from './m10-animacio.component';
 @NgModule({
   declarations: [
-    M01_SumaComponent,
-    M02_IteradorComponent
-    
+    M01_SalutacioComponent,
+    M02_SumaComponent,
+    M03_IteradorComponent,
+    M04_PomodoroComponent,
+    M05_BindingsComponent,
+    M05_CompteEnrera_Component,
+    M06_DirectivesComponent,
+    M07_DirectivaPersonalitzadaComponent,
+    M07_DirectivaPersonalizada,
+    M08_PipesComponent,
+    M09_PipePersonalizadaComponent,
+    M09_OrdenarPerPipe,
+    M10_AnimacionsComponent,
+    M10_AnimacioComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
+    
   ],
   providers: [],
-  bootstrap: [M01_SumaComponent]
+  bootstrap: [M10_AnimacionsComponent]
 })
 export class AppModule { }

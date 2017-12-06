@@ -1,21 +1,34 @@
 /*
- * Component que te la lògica del component compte enrera,
- * mostra con es generen esdeveniments i es controlen propietats
+ * Component embolcall que utilitza un subcomponent amb la lògica
  * @author sergi grau, sergi.grau@fje.edu
  * @version 1.0
  * date 15.10.2016
  * format del document UTF-8
- *
+ * date 10.12.2017
+ * actualització i ajustament a un sol fitxer
  * CHANGELOG
  * 15.10.2016
- * - Component que te la lògica del component compte enrera,
- *
+ * - Component embolcall que utilitza un subcomponent amb la lògica
+ * 6.12.2017
+ * - correcció de bugs i creació d'un fitxer amb 2 components
  * NOTES
  * ORIGEN
  * Desenvolupament Aplicacions Web. Jesuïtes El Clot
  */
 import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import {Observable} from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
+import { TimerObservable } from 'rxjs/observable/TimerObservable';
+
+@Component({
+    selector: 'aplicacio',
+    templateUrl: './m05-bindings-pomodoro.html'
+})
+
+export class M05_BindingsComponent {
+    onCompteEnreraFinalitza(): void {
+        alert('Final!');
+    }
+}
 
 @Component({
     selector: 'comptador',
@@ -27,23 +40,21 @@ import {Observable} from 'rxjs/Rx';
     styles: ['h1 { color: #900 }'],
     encapsulation: ViewEncapsulation.Emulated
 })
-export class CompteEnrera_Component {
-    @Input() segons: number=60; //si no es defineix la prop d'entrada val 60
-    
+export class M05_CompteEnrera_Component {
+    private intervalId;
+    @Input() segons: number = 60; //si no es defineix la prop d'entrada val 60
     @Output() completat: EventEmitter<any> = new EventEmitter();
     @Output() progres: EventEmitter<number> = new EventEmitter<number>();
 
     constructor() {
-        let timer = Observable.timer(2000,1000);
-        timer.subscribe(this.tick);
+        this.intervalId = setInterval(() => this.tick(), 1000);        
     }
     private tick(): void {
-
         if (--this.segons < 1) {
             clearInterval(this.intervalId);
             this.completat.emit(null);
-
         }
         this.progres.emit(this.segons);
     }
 }
+

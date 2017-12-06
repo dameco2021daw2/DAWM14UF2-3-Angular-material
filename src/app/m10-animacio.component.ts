@@ -1,3 +1,19 @@
+/*
+ * Animació personalitzada
+ * @author sergi grau, sergi.grau@fje.edu
+ * @version 1.0
+ * date 15.10.2016
+ * format del document UTF-8
+ *
+ * CHANGELOG
+ * 5.12.2017
+ * - Animació personalitzada
+ * NOTES
+ * ORIGEN
+ * Desenvolupament Aplicacions Web. Jesuïtes El Clot
+ */
+
+
 import { 
     Component, Input, 
     trigger, state, animate, transition, style 

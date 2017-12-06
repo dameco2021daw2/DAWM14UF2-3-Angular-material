@@ -8,7 +8,8 @@
  * CHANGELOG
  * 15.10.2016
  * - Component embolcall que utilitza un subcomponent amb la lògica
- *
+ * 5.12.2017
+ * - correccions i actualitzacions
  * NOTES
  * ORIGEN
  * Desenvolupament Aplicacions Web. Jesuïtes El Clot
@@ -19,7 +20,7 @@ import { Component } from '@angular/core';
     templateUrl: './M03_bindings_pomodoro.html'
 })
 
-export class M03_Component {
+export class M05_BindingsComponent {
     onCompteEnreraFinalitza(): void {
         alert('Final!');
     }

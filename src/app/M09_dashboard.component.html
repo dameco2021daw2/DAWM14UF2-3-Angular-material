@@ -1,8 +1,0 @@
-<h3>Top Alumnes</h3>
-<div class="grid grid-pad">
-  <a *ngFor="let alumne of alumnes"  [routerLink]="['/detall', alumne.id]"  class="col-1-4">
-    <div class="module alumne">
-      <h4>{{alumne.nom}}</h4>
-    </div>
-  </a>
-</div>

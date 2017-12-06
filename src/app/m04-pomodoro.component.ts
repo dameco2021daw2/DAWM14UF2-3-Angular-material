@@ -1,5 +1,7 @@
 /*
  * Component que mostra com poden utilitzar esdeveniment DOM
+ * també mostra com utilitzar una pipe
+ * mostra un cronometre pomodoro
  * @author sergi grau, sergi.grau@fje.edu
  * @version 1.0
  * date 15.10.2016
@@ -8,7 +10,8 @@
  * CHANGELOG
  * 15.10.2016
  * - Component que mostra com poden utilitzar esdeveniment DOM
- *
+ * 15.10.2017
+ * - Actualització a Angular 5
  * NOTES
  * ORIGEN
  * Desenvolupament Aplicacions Web. Jesuïtes El Clot
@@ -29,7 +32,7 @@ import { Component } from '@angular/core';
     </div>
     `
 })
-export class M02_Component {
+export class M04_PomodoroComponent {
     minuts: number;
     segons: number;
     isPausa: boolean;
@@ -59,7 +62,6 @@ export class M02_Component {
             }
         }
     }
-
     conmutarPausa(): void {
         this.isPausa = !this.isPausa;
         if (this.minuts < 24 || this.segons < 59) {
@@ -68,7 +70,3 @@ export class M02_Component {
     }
 }
 
-/*
-sergi.grau@fje.edu
-version 1.0 17.11.16
-*/

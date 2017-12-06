@@ -1,3 +1,18 @@
+/*
+ * Component que fa ús d'animacions personalitzades
+ * @author sergi grau, sergi.grau@fje.edu
+ * @version 1.0
+ * date 15.10.2016
+ * format del document UTF-8
+ *
+ * CHANGELOG
+ * 5.12.2017
+ * - Component que fa ús d'animacions personalitzades
+ * NOTES
+ * ORIGEN
+ * Desenvolupament Aplicacions Web. Jesuïtes El Clot
+ */
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -27,6 +42,6 @@ import { Component } from '@angular/core';
 `
   ]
 })
-export class M10_Component {
+export class M10_AnimacionsComponent {
   mostrarEfecte: boolean = true;
 }
