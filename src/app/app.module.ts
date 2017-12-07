@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AppEncaminamentModule } from './app-encaminament.module';
 
 import { M01_SalutacioComponent } from './m01-salutacio.component';
 import { M02_SumaComponent } from './m02-suma.component';
@@ -14,10 +15,12 @@ import { M06_DirectivesComponent } from './m06-directives.component';
 import { M07_DirectivaPersonalitzadaComponent } from './m07-directiva-personalitzada.component';
 import { M07_DirectivaPersonalizada } from './m07-directiva-personalitzada.directive';
 import { M08_PipesComponent } from './m08-pipes.component';
-import { M09_PipePersonalizadaComponent} from './m09-pipe-personalitzada.component';
+import { M09_PipePersonalizadaComponent } from './m09-pipe-personalitzada.component';
 import { M09_OrdenarPerPipe } from './m09-ordenar-per.pipe';
 import { M10_AnimacionsComponent } from './m10-animacions.component';
 import { M10_AnimacioComponent } from './m10-animacio.component';
+import { M11_EncaminamentComponent } from './m11-encaminament.component';
+
 @NgModule({
   declarations: [
     M01_SalutacioComponent,
@@ -33,15 +36,16 @@ import { M10_AnimacioComponent } from './m10-animacio.component';
     M09_PipePersonalizadaComponent,
     M09_OrdenarPerPipe,
     M10_AnimacionsComponent,
-    M10_AnimacioComponent
+    M10_AnimacioComponent,
+    M11_EncaminamentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    BrowserAnimationsModule
-    
+    BrowserAnimationsModule,
+    AppEncaminamentModule
   ],
   providers: [],
-  bootstrap: [M10_AnimacionsComponent]
+  bootstrap: [M11_EncaminamentComponent]
 })
 export class AppModule { }
