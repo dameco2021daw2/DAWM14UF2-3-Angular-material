@@ -12,16 +12,53 @@
  * ORIGEN
  * Desenvolupament Aplicacions Web. Jesuïtes El Clot
  */
-import { Component } from '@angular/core';
-import { HttpDAOService } from './httpdao.service';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from "rxjs/Observable";
+import { HttpClient } from "@angular/common/http";
+import { HttpParams } from '@angular/common/http';
+
+
+interface Alumne {
+    nom: string;
+    cognom: string;
+    curs: string;
+}
 
 @Component({
     selector: 'aplicacio',
-    templateUrl: 'm03-iterador-component.html',
-    styles: ['h1 { color: #900 }']
-})
-export class M12_Http {
-    constructor(private httpDAO: HttpDAOService) {
+    template: `
+      <ul *ngIf="alumnes$ | async as alumnes else senseDades">
+          <li *ngFor="let alumne of alumnes">
+              {{alumne.nom}}
+          </li> 
+      </ul>
+      <ng-template #senseDades>No hi ha dades disponibles</ng-template>
+      <a href="http://localhost:8888/afegirAlumne"> afegir alumne foo </a>
+  `})
+export class M12_Http implements OnInit {
+    private alumnes$: Observable<Alumne[]>;
+
+    constructor(private http: HttpClient) {
     }
-    
+
+    ngOnInit() {
+       this.alumnes$=this.consultarTots();
+    }
+    consultarTots():Observable<Alumne[]> {
+        return this.http.get<Alumne[]>('http://localhost:8888/consultarTots');
+    }
+    consultarAlumne(): void {
+        const params = new HttpParams().set('alumne', 'sergi');
+        this.http.get('http://localhost:8888/consultarAlumne', { params }).subscribe(data => {
+            console.log(data);
+        });
+    }
+    afegirAlumne(): void {
+        this.http.post<Alumne>('http://localhost:8888/afegirAlumne', {
+            nom: 'foo',
+            cognom: 'bar'
+        }).subscribe(data => {
+            console.log(data.nom, data.cognom);
+        });
+    }
 }

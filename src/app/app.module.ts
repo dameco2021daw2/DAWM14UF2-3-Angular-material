@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppEncaminamentModule } from './app-encaminament.module';
 
@@ -20,6 +21,9 @@ import { M09_OrdenarPerPipe } from './m09-ordenar-per.pipe';
 import { M10_AnimacionsComponent } from './m10-animacions.component';
 import { M10_AnimacioComponent } from './m10-animacio.component';
 import { M11_EncaminamentComponent } from './m11-encaminament.component';
+import { M12_Http } from './m12-http.component';
+import { M12_HttpDAOService } from './m12-httpdao.service';
+
 
 @NgModule({
   declarations: [
@@ -37,15 +41,17 @@ import { M11_EncaminamentComponent } from './m11-encaminament.component';
     M09_OrdenarPerPipe,
     M10_AnimacionsComponent,
     M10_AnimacioComponent,
-    M11_EncaminamentComponent
+    M11_EncaminamentComponent,
+    M12_Http
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    AppEncaminamentModule
+    AppEncaminamentModule,
+    HttpClientModule
   ],
-  providers: [],
-  bootstrap: [M11_EncaminamentComponent]
+  providers: [M12_HttpDAOService],
+  bootstrap: [M12_Http]
 })
 export class AppModule { }

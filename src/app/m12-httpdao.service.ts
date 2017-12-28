@@ -2,15 +2,14 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
 
-
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
-export class HttpDAOService {
+export class M12_HttpDAOService {
 
-  private httpDAO: Http;
+  private httpDAO: HttpClient;
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
     this.httpDAO = http;
   }
 
@@ -24,23 +23,25 @@ export class HttpDAOService {
     const requestUrl = `${href}`;
     var alumnes: Alumne[] = []
 
+   /*
     this.http.get(requestUrl)
-      .map(response => response.json() as Alumne[]).subscribe((res => {
+      //.map(response => response.json() as Alumne[]).subscribe((res => {
         res.forEach(element => {
           alumnes.push(element);
         });
       }));
     return alumnes;
+    */
   }
 
 
   esborrarAlumne(alumne: Alumne) {
-    this.http.get(`api/esborrarAlumne?idr=${alumne.id}`)
-    .subscribe(response => response.json() as Alumne)  
+    //this.http.get(`api/esborrarAlumne?idr=${alumne.id}`)
+    //.subscribe(response => response.json() as Alumne)  
   }
 }
 
-export class Alumne {
+export interface Alumne {
     id:number;
     nom:string;
 }
