@@ -27,6 +27,8 @@ interface Alumne {
 @Component({
     selector: 'aplicacio',
     template: `
+
+    <img src="../assets/logo.png" >
       <ul *ngIf="alumnes$ | async as alumnes else senseDades">
           <li *ngFor="let alumne of alumnes">
               {{alumne.nom}}
@@ -34,6 +36,8 @@ interface Alumne {
       </ul>
       <ng-template #senseDades>No hi ha dades disponibles</ng-template>
       <a href="http://localhost:8888/afegirAlumne"> afegir alumne foo </a>
+<br/>
+      <audio src="http://localhost:8888/audio1.mp3" autoplay controls></audio>
   `})
 export class M12_Http implements OnInit {
     private alumnes$: Observable<Alumne[]>;
@@ -44,6 +48,7 @@ export class M12_Http implements OnInit {
     ngOnInit() {
        this.alumnes$=this.consultarTots();
     }
+    
     consultarTots():Observable<Alumne[]> {
         return this.http.get<Alumne[]>('http://localhost:8888/consultarTots');
     }

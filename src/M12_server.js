@@ -16,6 +16,7 @@
 var http = require("http");
 var url = require("url");
 var querystring = require("querystring");
+var fs = require('fs');
 
 const alumnes = '[{"nom":"sergi", "cognom":"grau"},{"nom":"joan", "cognom":"angular"}]';
 
@@ -45,7 +46,22 @@ function iniciar() {
 			});
 			response.write(alumnes);
 			response.end();
-		} else if(pathname == '/afegirAlumne'){
+		} 
+		else if(pathname == '/audio1.mp3'){
+
+			console.log('audio');
+            fs.readFile('./audio1.mp3', function (err, sortida) {
+                response.writeHead(200, {
+                    'Content-Type': 'audio/mpeg'
+                });
+
+                response.write(sortida);
+                response.end();
+});
+		}
+		else if(pathname == '/afegirAlumne'){
+
+			
 			response.writeHead(200, {
 				"Content-Type": "application/json; charset=utf-8"
 			});
