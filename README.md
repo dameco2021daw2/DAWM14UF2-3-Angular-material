@@ -13,4 +13,5 @@
 <li>Pipes</li>
 <li>Animations</li>
 <li>Routing</li>
+<li>HTTPClient</li>
 </ol>
